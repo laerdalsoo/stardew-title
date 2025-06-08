@@ -1,0 +1,229 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+ background: linear-gradient(to bottom,
+  #004287 0%,
+  #1685F4 20%,
+  #64E9E7 80%);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title-img {
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin: 0 auto;
+  width: 850px;        
+  height: auto;        
+  margin-top: 40px;        
+}
+
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.btn {
+  width: 170px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 5;
+}
+
+.btn-new:hover {
+  content: url('assets/NEW-hover.png');
+}
+
+.btn-load:hover {
+  content: url('assets/LOAD-hover.png');
+}
+
+.btn-exit:hover {
+  content: url('assets/EXIT-hover.png');
+}
+
+.help-btn {
+  position: fixed;
+  bottom: 40px;       
+  right: 40px;       
+  width: 70px;     
+  height: 70px;
+  cursor: pointer;
+  z-index: 10;       
+}
+
+.help-btn:hover {
+  content: url('assets/help-hover.png');
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.preload {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  background-image: url('assets/NEW-hover.png'), url('assets/LOAD-hover.png'), url('assets/EXIT-hover.png'), url('assets/help-hover.png');
+}
+
+.star_big {
+  position: fixed;
+  top: 10vh;   
+  left: 20vw;  
+  width: 3vw;
+  height: 3vw;
+  background-image: url('assets/star.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: twinkle_star_big 2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.star_small {         
+  position: fixed;
+  top: 5vh;   
+  left: 80vw;  
+  width: 2vw;
+  height: 2vw;
+  background-image: url('assets/star.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: twinkle_star_small 1.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes twinkle_star_big {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle_star_small {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+.little_star_left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 20%;
+  background-image: url('assets/little_star1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.little_star_right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-image: url('assets/little_star2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.cloud_big {
+  position: fixed;
+  top: 50vh;   
+  left: -35vw;  
+  width: 40vw;
+  height: 40vw;
+  background-image: url('assets/cloud2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: move_cloud_big 70s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes move_cloud_big {
+  0%   { transform: translateX(0); opacity: 0.8; }
+  100% { transform: translateX(100vw); opacity: 0.8; }
+}
+
+.cloud_small {   
+  position: fixed;
+  top: 10vh;   
+  left: 70vw;  
+  width: 14vw;
+  height: 14vw;
+  background-image: url('assets/cloud3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: move_cloud_small 100s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes move_cloud_small {
+  0%   { transform: translateX(0); opacity: 0.4; }
+  100% { transform: translateX(40vw); opacity: 0.4; }
+}
+
+.cloud_middle {
+  position: fixed;
+  top: 40vh;   
+  left: 0vw;  
+  width: 20vw;
+  height: 20vw;
+  background-image: url('assets/cloud3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: move_cloud_middle 100s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes move_cloud_middle {
+  0%   { transform: translateX(0); opacity: 0.3; }
+  100% { transform: translateX(60vw); opacity: 0.3; }
+}
+
+.cloud {
+  transform: scaleX(-1);
+  position: fixed;
+  bottom: -6vw;            
+  right: -30vw; 
+  width: 70vw;        
+  height: 40vh;
+  background-image: url('assets/cloud2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: move_cloud 150s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes move_cloud {
+  0%   { transform: translateX(0); opacity: 0.3; }
+  100% { transform: translateX(30vw); opacity: 0.3; }
+}
