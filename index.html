@@ -8,21 +8,58 @@
 <body>
   <div class="star_big"></div>
   <div class="star_small"></div>
+
   <div class="little_star_left"></div>
   <div class="little_star_right"></div>
+
   <div class="cloud_big"></div>
   <div class="cloud_small"></div>
   <div class="cloud_middle"></div>
   <div class="cloud"></div>
-    <div class="container">
+
+  <div class="container">
      <img src="assets/title.png" alt="게임 타이틀" class="title-img">
       <div class="buttons">
        <img src="assets/NEW.png" alt="New Game" class="btn btn-new">
        <img src="assets/LOAD.png" alt="Load Game" class="btn btn-load">
        <img src="assets/EXIT.png" alt="Exit Game" class="btn btn-exit">
        <img src="assets/help.png" alt="도움말" class="btn help-btn">
+       <img src="assets/play.png" alt="음악 버튼" class="btn music-btn" id="musicBtn">
       </div>
-      <div class="preload"></div>
-    </div>
+  </div>
+
+   <audio id="bgm" src="assets/Stardew_Valley_Overture.mp3"></audio>
+   <audio id="hoverSound" src="assets/Click.mp3"></audio>
+
+  <div class="preload"></div>
+
+  <script>
+  const musicBtn = document.getElementById('musicBtn');
+  const audio = document.getElementById('bgm');
+  let isPlaying = false;
+
+  musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      musicBtn.src = 'assets/play.png'; 
+    } else {
+      audio.play();
+      musicBtn.src = 'assets/stop.png'; 
+    }
+    isPlaying = !isPlaying;
+    });
+  </script>
+  <script>
+  const hoverSound = document.getElementById('hoverSound');
+  const buttons = document.querySelectorAll('.btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0; // 항상 처음부터 재생
+      hoverSound.play();
+    });
+  });
+  </script>
+
 </body>
 </html>%

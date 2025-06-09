@@ -67,6 +67,20 @@ body {
   content: url('assets/help-hover.png');
 }
 
+.music-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 120px; 
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.music-btn:hover {
+  filter: brightness(1.2); 
+}
+
 .btn:hover {
   transform: scale(1.1);
 }
@@ -76,7 +90,7 @@ body {
   width: 0;
   height: 0;
   overflow: visible;
-  background-image: url('assets/NEW-hover.png'), url('assets/LOAD-hover.png'), url('assets/EXIT-hover.png'), url('assets/help-hover.png');
+  background-image: url('assets/NEW-hover.png'), url('assets/LOAD-hover.png'), url('assets/EXIT-hover.png');
 }
 
 .star_big {
@@ -179,7 +193,7 @@ body {
   background-image: url('assets/cloud3.png');
   background-size: contain;
   background-repeat: no-repeat;
-  animation: move_cloud_small 100s linear infinite;
+  animation: move_cloud_small 120s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
@@ -218,12 +232,12 @@ body {
   background-image: url('assets/cloud2.png');
   background-size: contain;
   background-repeat: no-repeat;
-  animation: move_cloud 150s linear infinite;
+  animation: move_cloud 80s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 @keyframes move_cloud {
   0%   { transform: translateX(0); opacity: 0.3; }
-  100% { transform: translateX(30vw); opacity: 0.3; }
+  100% { transform: translateX(80vw); opacity: 0.3; }
 }
