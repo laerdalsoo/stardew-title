@@ -24,6 +24,12 @@
        <img src="assets/LOAD.png" alt="Load Game" class="btn btn-load">
        <img src="assets/EXIT.png" alt="Exit Game" class="btn btn-exit">
        <img src="assets/help.png" alt="도움말" class="btn help-btn">
+       <div id="helpPopup" class="popup-overlay">
+         <div class="popup-content">
+           <img src="assets/help-popup.png" alt="도움말 팝업" class="popup-image">
+           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closePopup" class="popup-close">
+         </div>
+       </div>
        <img src="assets/play.png" alt="음악 버튼" class="btn music-btn" id="musicBtn">
       </div>
   </div>
@@ -50,15 +56,28 @@
     });
   </script>
   <script>
-  const hoverSound = document.getElementById('hoverSound');
-  const buttons = document.querySelectorAll('.btn');
+   const hoverSound = document.getElementById('hoverSound');
+   const buttons = document.querySelectorAll('.btn');
 
-  buttons.forEach(button => {
-    button.addEventListener('mouseenter', () => {
-      hoverSound.currentTime = 0; // 항상 처음부터 재생
-      hoverSound.play();
+   buttons.forEach(button => {
+     button.addEventListener('click', () => {
+       hoverSound.currentTime = 0;   
+       hoverSound.play();
+     });
+   });
+  </script>
+  <script>
+   const helpBtn    = document.querySelector('.help-btn');
+   const helpPopup  = document.getElementById('helpPopup');
+   const closePopup = document.getElementById('closePopup');
+
+    helpBtn.addEventListener('click', () => {
+     helpPopup.style.display = 'flex';
     });
-  });
+
+    closePopup.addEventListener('click', () => {
+     helpPopup.style.display = 'none';
+    });
   </script>
 
 </body>

@@ -67,6 +67,41 @@ body {
   content: url('assets/help-hover.png');
 }
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  position: relative;
+  display: flex;            
+  justify-content: center;
+  align-items: center;               
+}
+
+.popup-image {
+  max-width: 90vw;                   
+  max-height: 80vh;                  
+  display: block;
+}
+
+.popup-close {
+  position: absolute;    
+  top: 14%;                  
+  right: 14%;                
+  width: 3%;                
+  height: auto;             
+  cursor: pointer;
+}
+
 .music-btn {
   position: fixed;
   bottom: 40px;
@@ -193,7 +228,7 @@ body {
   background-image: url('assets/cloud3.png');
   background-size: contain;
   background-repeat: no-repeat;
-  animation: move_cloud_small 120s linear infinite;
+  animation: move_cloud_small 100s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
