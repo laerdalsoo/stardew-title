@@ -53,6 +53,29 @@ body {
   content: url('assets/EXIT-hover.png');
 }
 
+.EXIT-popup-content  {
+  position: relative;
+  display: flex;            
+  justify-content: center;
+  align-items: center;    
+}
+
+.EXIT-popup-image {
+  max-width: 90vw;                   
+  max-height: 80vh;                  
+  display: block;
+}
+
+.EXIT-confirm-image {
+  position: absolute;    
+  bottom: 20%;                  
+  left: 50%;                
+  width: 20%;
+  transform: translateX(-50%);                
+  height: auto;             
+  cursor: pointer;
+}
+
 .help-btn {
   position: fixed;
   bottom: 40px;       
@@ -65,6 +88,15 @@ body {
 
 .help-btn:hover {
   content: url('assets/help-hover.png');
+}
+
+.exit-popup-close {
+  position: absolute;    
+  top: 14%;                  
+  right: 22%;                
+  width: 3%;                
+  height: auto;             
+  cursor: pointer;
 }
 
 .popup-overlay {
@@ -93,7 +125,7 @@ body {
   display: block;
 }
 
-.popup-close {
+.help-popup-close {
   position: absolute;    
   top: 14%;                  
   right: 14%;                
@@ -125,7 +157,7 @@ body {
   width: 0;
   height: 0;
   overflow: visible;
-  background-image: url('assets/NEW-hover.png'), url('assets/LOAD-hover.png'), url('assets/EXIT-hover.png');
+  background-image: url('assets/NEW-hover.png'), url('assets/LOAD-hover.png'), url('assets/EXIT-hover.png'), url('assets/help-hover.png');
 }
 
 .star_big {

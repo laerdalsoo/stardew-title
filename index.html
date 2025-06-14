@@ -23,11 +23,18 @@
        <img src="assets/NEW.png" alt="New Game" class="btn btn-new">
        <img src="assets/LOAD.png" alt="Load Game" class="btn btn-load">
        <img src="assets/EXIT.png" alt="Exit Game" class="btn btn-exit">
+       <div id="EXITpopup" class="popup-overlay">
+         <div class="EXIT-popup-content">
+           <img src="assets/EXIT-popup.png" alt="종료 팝업" class="EXIT-popup-image">
+           <img src="assets/EXIT-confirm.png" alt="종료 확인" id="EXITconfirm" class="EXIT-confirm-image">
+           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closeEXITPopup" class="exit-popup-close">
+         </div>
+       </div>
        <img src="assets/help.png" alt="도움말" class="btn help-btn">
        <div id="helpPopup" class="popup-overlay">
          <div class="popup-content">
            <img src="assets/help-popup.png" alt="도움말 팝업" class="popup-image">
-           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closePopup" class="popup-close">
+           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closePopup" class="help-popup-close">
          </div>
        </div>
        <img src="assets/play.png" alt="음악 버튼" class="btn music-btn" id="musicBtn">
@@ -79,6 +86,26 @@
      helpPopup.style.display = 'none';
     });
   </script>
+  <script>
+    const EXITbtn        = document.querySelector('.btn-exit');
+    const EXITpopup     = document.getElementById('EXITpopup');
+    const EXITconfirm    = document.getElementById('EXITconfirm');
+    const closeEXITPopup = document.getElementById('closeEXITPopup');
+
+    EXITbtn.addEventListener('click', () => {
+      EXITpopup.style.display = 'flex';
+    });
+
+    closeEXITPopup.addEventListener('click', () => {
+     EXITpopup.style.display = 'none';
+   });
+
+    EXITconfirm.addEventListener('click', () => {
+     window.close();
+    });
+  </script>
+
+
 
 </body>
-</html>%
+</html>
