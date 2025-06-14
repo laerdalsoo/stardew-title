@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <title>Stardew Velley Title</title>
+  <title>Stardew Valley Title</title>
   <link rel="stylesheet" href="style.css">
   
 </head>
@@ -20,29 +20,29 @@
   <div class="container">
      <img src="assets/title.png" alt="게임 타이틀" class="title-img">
       <div class="buttons">
-       <img src="assets/NEW.png" alt="New Game" class="btn btn-new">
-       <img src="assets/LOAD.png" alt="Load Game" class="btn btn-load">
-       <img src="assets/EXIT.png" alt="Exit Game" class="btn btn-exit">
-       <div id="EXITpopup" class="popup-overlay">
-         <div class="EXIT-popup-content">
-           <img src="assets/EXIT-popup.png" alt="종료 팝업" class="EXIT-popup-image">
-           <img src="assets/EXIT-confirm.png" alt="종료 확인" id="EXITconfirm" class="EXIT-confirm-image">
-           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closeEXITPopup" class="exit-popup-close">
+       <img src="assets/new-btn.png" alt="New Game" class="btn btn-new">
+       <img src="assets/load-btn.png" alt="Load Game" class="btn btn-load">
+       <img src="assets/exit-btn.png" alt="Exit Game" class="btn btn-exit">
+       <div id="exitPopup" class="popup-overlay">
+         <div class="exit-popup-content">
+           <img src="assets/exit-popup.png" alt="종료 팝업" class="exit-popup-image">
+           <img src="assets/exit-confirm.png" alt="종료 확인" id="exitConfirm" class="exit-confirm-image">
+           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closeExitPopup" class="exit-popup-close">
          </div>
        </div>
-       <img src="assets/help.png" alt="도움말" class="btn help-btn">
+       <img src="assets/help-btn.png" alt="도움말" class="btn help-btn">
        <div id="helpPopup" class="popup-overlay">
          <div class="popup-content">
            <img src="assets/help-popup.png" alt="도움말 팝업" class="popup-image">
            <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closePopup" class="help-popup-close">
          </div>
        </div>
-       <img src="assets/play.png" alt="음악 버튼" class="btn music-btn" id="musicBtn">
+       <img src="assets/play-btn.png" alt="음악 버튼" class="btn music-btn" id="musicBtn">
       </div>
   </div>
 
-   <audio id="bgm" src="assets/Stardew_Valley_Overture.mp3"></audio>
-   <audio id="hoverSound" src="assets/Click.mp3"></audio>
+   <audio id="bgm" src="assets/stardew_valley_overture.mp3"></audio>
+   <audio id="hoverSound" src="assets/click.mp3"></audio>
 
   <div class="preload"></div>
 
@@ -54,10 +54,10 @@
   musicBtn.addEventListener('click', () => {
     if (isPlaying) {
       audio.pause();
-      musicBtn.src = 'assets/play.png'; 
+      musicBtn.src = 'assets/play-btn.png'; 
     } else {
       audio.play();
-      musicBtn.src = 'assets/stop.png'; 
+      musicBtn.src = 'assets/stop-btn.png'; 
     }
     isPlaying = !isPlaying;
     });
@@ -87,25 +87,22 @@
     });
   </script>
   <script>
-    const EXITbtn        = document.querySelector('.btn-exit');
-    const EXITpopup     = document.getElementById('EXITpopup');
-    const EXITconfirm    = document.getElementById('EXITconfirm');
-    const closeEXITPopup = document.getElementById('closeEXITPopup');
+    const exitBtn        = document.querySelector('.btn-exit');
+    const exitPopup     = document.getElementById('exitPopup');
+    const exitConfirm    = document.getElementById('exitConfirm');
+    const closeExitPopup = document.getElementById('closeExitPopup');
 
-    EXITbtn.addEventListener('click', () => {
-      EXITpopup.style.display = 'flex';
+    exitBtn.addEventListener('click', () => {
+      exitPopup.style.display = 'flex';
     });
 
-    closeEXITPopup.addEventListener('click', () => {
-     EXITpopup.style.display = 'none';
+    closeExitPopup.addEventListener('click', () => {
+     exitPopup.style.display = 'none';
    });
 
-    EXITconfirm.addEventListener('click', () => {
+    exitConfirm.addEventListener('click', () => {
      window.close();
     });
   </script>
-
-
-
 </body>
 </html>

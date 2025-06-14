@@ -42,31 +42,31 @@ body {
 }
 
 .btn-new:hover {
-  content: url('assets/NEW-hover.png');
+  content: url('assets/new-hover.png');
 }
 
 .btn-load:hover {
-  content: url('assets/LOAD-hover.png');
+  content: url('assets/load-hover.png');
 }
 
 .btn-exit:hover {
-  content: url('assets/EXIT-hover.png');
+  content: url('assets/exit-hover.png');
 }
 
-.EXIT-popup-content  {
+.exit-popup-content  {
   position: relative;
   display: flex;            
   justify-content: center;
   align-items: center;    
 }
 
-.EXIT-popup-image {
+.exit-popup-image {
   max-width: 90vw;                   
   max-height: 80vh;                  
   display: block;
 }
 
-.EXIT-confirm-image {
+.exit-confirm-image {
   position: absolute;    
   bottom: 20%;                  
   left: 50%;                
@@ -157,7 +157,7 @@ body {
   width: 0;
   height: 0;
   overflow: visible;
-  background-image: url('assets/NEW-hover.png'), url('assets/LOAD-hover.png'), url('assets/EXIT-hover.png'), url('assets/help-hover.png');
+  background-image: url('assets/new-hover.png'), url('assets/load-hover.png'), url('assets/exit-hover.png'), url('assets/help-hover.png');
 }
 
 .star_big {
@@ -238,7 +238,7 @@ body {
   left: -35vw;  
   width: 40vw;
   height: 40vw;
-  background-image: url('assets/cloud2.png');
+  background-image: url('assets/cloud1.png');
   background-size: contain;
   background-repeat: no-repeat;
   animation: move_cloud_big 70s linear infinite;
@@ -257,7 +257,7 @@ body {
   left: 70vw;  
   width: 14vw;
   height: 14vw;
-  background-image: url('assets/cloud3.png');
+  background-image: url('assets/cloud2.png');
   background-size: contain;
   background-repeat: no-repeat;
   animation: move_cloud_small 100s linear infinite;
@@ -276,7 +276,7 @@ body {
   left: 0vw;  
   width: 20vw;
   height: 20vw;
-  background-image: url('assets/cloud3.png');
+  background-image: url('assets/cloud2.png');
   background-size: contain;
   background-repeat: no-repeat;
   animation: move_cloud_middle 100s linear infinite;
@@ -296,7 +296,7 @@ body {
   right: -30vw; 
   width: 70vw;        
   height: 40vh;
-  background-image: url('assets/cloud2.png');
+  background-image: url('assets/cloud1.png');
   background-size: contain;
   background-repeat: no-repeat;
   animation: move_cloud 80s linear infinite;
