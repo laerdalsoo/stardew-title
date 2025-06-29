@@ -53,6 +53,146 @@ body {
   content: url('assets/exit-hover.png');
 }
 
+.create-popup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.create-popup-background {
+  position: relative;
+  width: 75vw;
+  max-height: 75vh;
+  background-image: url('assets/create-popup.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  aspect-ratio: 16/9;
+}
+
+
+.create-popup-close{
+  position: absolute;    
+  top: 14%;                  
+  right: 15%;                
+  width: 2.7%;                
+  height: auto;             
+  cursor: pointer;
+}
+
+.character-image {
+  position: absolute;
+  top: 36%;
+  left: 28.5%;
+  width: 12.7%;
+}
+
+.name-tex-image {
+  position: absolute;
+  top: 32.5%;
+  left: 58%;
+  width: 9%;
+  cursor: pointer;
+}
+
+.name-text-span {
+  position: absolute;
+  top: 32.3%;
+  left: 62.5%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  font-family: 'CookieRun', sans-serif;
+  color: #D67A1E;
+  background: none;
+  border: none;
+  outline: none;
+  z-index: 20;
+  width: 20%;
+  text-align: center;
+}
+
+.farm-text-span {
+  position: absolute;
+  top: 43%;
+  left: 57.5%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  font-family: 'CookieRun', sans-serif;
+  color: #D67A1E;
+  background: none;
+  border: none;
+  outline: none;
+  z-index: 20;
+  width: 20%;
+  text-align: center;
+}
+
+.favotite-tex-image {
+  position: absolute;
+  top: 54.4%;
+  left: 51.5%;
+  width: 22%;
+  cursor: pointer;
+}
+
+.favotite-text-span {
+  position: absolute;
+  top: 53.7%;
+  left: 62.5%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  font-family: 'CookieRun', sans-serif;
+  color: #D67A1E;
+  background: none;
+  border: none;
+  outline: none;
+  z-index: 20;
+  width: 23%;
+  text-align: center;
+}
+
+.arrow-left-image {
+  position: absolute;    
+  top: 76%;                  
+  left: 30.3%;                
+  width: 4%;                
+  height: auto;   
+  cursor: pointer;
+}
+
+.arrow-left-image:hover {
+   transform: scale(1.1)
+}
+
+.arrow-right-image {
+  position: absolute;    
+  top: 76%;                  
+  left: 35.3%;                
+  width: 4%;                
+  height: auto; 
+  cursor: pointer;
+}
+
+.arrow-right-image:hover {
+   transform: scale(1.1)
+}
+
+.create-btn{
+  position: absolute;    
+  top: 70%;                  
+  right: 23%;                
+  width: 7%;                
+  height: auto;             
+  cursor: pointer;
+}
+
+.create-btn:hover{
+  content: url('assets/create-hover.png');
+  transform: scale(1.1)
+
+}
+
 .exit-popup-content  {
   position: relative;
   display: flex;            
@@ -92,9 +232,9 @@ body {
 
 .exit-popup-close {
   position: absolute;    
-  top: 14%;                  
-  right: 22%;                
-  width: 3%;                
+  top: 15%;                  
+  right: 23%;                
+  width: 2.5%;                
   height: auto;             
   cursor: pointer;
 }
@@ -129,7 +269,7 @@ body {
   position: absolute;    
   top: 14%;                  
   right: 14%;                
-  width: 3%;                
+  width: 2.5%;                
   height: auto;             
   cursor: pointer;
 }
@@ -145,7 +285,7 @@ body {
 }
 
 .music-btn:hover {
-  filter: brightness(1.2); 
+  content: url('assets/play-hover.png'); 
 }
 
 .btn:hover {
@@ -157,7 +297,12 @@ body {
   width: 0;
   height: 0;
   overflow: visible;
-  background-image: url('assets/new-hover.png'), url('assets/load-hover.png'), url('assets/exit-hover.png'), url('assets/help-hover.png');
+  background-image: url('assets/new-hover.png'), url('assets/load-hover.png'),
+  url('assets/exit-hover.png'), url('assets/help-hover.png'),
+  url('assets/play-hover.png'), url('assets/create-popup.png'),
+  url('assets/character-1.png'), url('assets/arrow-left.png'),
+  url('assets/arrow-right.png'), url('assets/create-btn.png'),
+  url('assets/help-popup-close.png');
 }
 
 .star_big {
@@ -307,4 +452,11 @@ body {
 @keyframes move_cloud {
   0%   { transform: translateX(0); opacity: 0.3; }
   100% { transform: translateX(80vw); opacity: 0.3; }
+}
+
+@font-face {
+  font-family: 'CookieRun';
+  src: url('assets/fonts/CookieRun-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }

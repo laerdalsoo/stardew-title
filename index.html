@@ -23,6 +23,19 @@
        <img src="assets/new-btn.png" alt="New Game" class="btn btn-new">
        <img src="assets/load-btn.png" alt="Load Game" class="btn btn-load">
        <img src="assets/exit-btn.png" alt="Exit Game" class="btn btn-exit">
+       <div id="createPopup" class="popup-overlay">
+        <div class="create-popup-content">
+          <div class="create-popup-background">
+            <img src="assets/name-tex.png" class="name-tex-image" alt="이름 입력">
+            <img src="assets/favotite-tex.png" class="favotite-tex-image" alt="좋아하는 것 입력">
+                        <img src="assets/character-1.png" class="character-image" id="characterImage" alt="캐릭터">
+            <img src="assets/arrow-left.png" class="arrow-left-image" id="arrowLeft" alt="왼쪽 화살표">
+            <img src="assets/arrow-right.png" class="arrow-right-image" id="arrowRight" alt="오른쪽 화살표">
+            <img src="assets/create-btn.png" class="create-btn" alt="생성 버튼" id="createBtn">
+            <img src="assets/help-popup-close.png" class="create-popup-close" id="closeCreatePopup" alt="닫기">
+          </div>
+        </div>
+       </div>
        <div id="exitPopup" class="popup-overlay">
          <div class="exit-popup-content">
            <img src="assets/exit-popup.png" alt="종료 팝업" class="exit-popup-image">
@@ -34,18 +47,194 @@
        <div id="helpPopup" class="popup-overlay">
          <div class="popup-content">
            <img src="assets/help-popup.png" alt="도움말 팝업" class="popup-image">
-           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closePopup" class="help-popup-close">
+           <img src="assets/help-popup-close.png" alt="팝업 닫기" id="closeHelpPopup" class="help-popup-close">
          </div>
        </div>
        <img src="assets/play-btn.png" alt="음악 버튼" class="btn music-btn" id="musicBtn">
       </div>
   </div>
 
-   <audio id="bgm" src="assets/stardew_valley_overture.mp3"></audio>
-   <audio id="hoverSound" src="assets/click.mp3"></audio>
+      <audio id="bgm" src="assets/stardew_valley_overture.mp3" preload="auto" loop></audio>
+   <audio id="hoverSound" src="assets/click.mp3" preload="auto"></audio>
 
   <div class="preload"></div>
 
+  <script>
+   const newBtn = document.querySelector('.btn-new');
+   const createPopup  = document.getElementById('createPopup');
+   const closeCreatePopup = document.getElementById('closeCreatePopup');
+
+    newBtn.addEventListener('click', () => {
+     createPopup.style.display = 'flex';
+     document.querySelector('.name-tex-image').style.display = 'block';
+    });
+
+    closeCreatePopup.addEventListener('click', () => {
+      createPopup.style.display = 'none';
+      const nameTextSpan = document.querySelector('.name-text-span');
+      if (nameTextSpan) nameTextSpan.remove();
+      document.querySelector('.name-tex-image').style.display = 'block';
+    });
+  </script>
+  <script>
+  const characterImage = document.getElementById('characterImage');
+  const arrowLeft = document.getElementById('arrowLeft');
+  const arrowRight = document.getElementById('arrowRight');
+
+  const characters = [
+    'assets/character-1.png',
+    'assets/character-2.png',
+  ];
+  
+  let currentIndex = 0;
+
+  function updateCharacterImage() {
+    characterImage.src = characters[currentIndex];
+  }
+
+  arrowRight.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % characters.length;
+    updateCharacterImage();
+  });
+
+  arrowLeft.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + characters.length) % characters.length;
+    updateCharacterImage();
+  });
+  </script>
+  
+  <script>
+  const nameTexImage = document.querySelector('.name-tex-image');
+
+  nameTexImage.addEventListener('click', () => {
+    if (document.querySelector('.name-text-span')) return;
+
+    nameTexImage.style.display = 'none';
+
+    const span = document.createElement('span');
+    span.className = 'name-text-span';
+    span.setAttribute('contenteditable', 'true');
+    span.setAttribute('spellcheck', 'false');
+    span.textContent = '';
+    span.style.display = 'inline-block';
+    span.style.minHeight = '1em';
+    span.style.outline = 'none';
+    
+    document.querySelector('.create-popup-background').appendChild(span);
+
+    span.focus();
+
+    const MAX_CHAR_LENGTH = 8;
+  span.addEventListener('input', () => {
+    if (span.textContent.length > MAX_CHAR_LENGTH) {
+      span.textContent = span.textContent.slice(0, MAX_CHAR_LENGTH);
+
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(span);
+      range.collapse(false);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  });
+
+    span.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        span.blur();
+      }
+    });
+  });
+  </script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const span = document.createElement('span');
+      span.className = 'farm-text-span';
+      span.setAttribute('contenteditable', 'true');
+      span.setAttribute('spellcheck', 'false');
+      span.textContent = '';
+      span.style.display = 'inline-block';
+      span.style.minHeight = '1em';
+      span.style.outline = 'none';
+
+      document.querySelector('.create-popup-background').appendChild(span);
+
+      span.focus();
+
+      const MAX_CHAR_LENGTH = 5;
+      span.addEventListener('input', () => {
+        if (span.textContent.length > MAX_CHAR_LENGTH) {
+          span.textContent = span.textContent.slice(0, MAX_CHAR_LENGTH);
+          const range = document.createRange();
+          const sel = window.getSelection();
+          range.selectNodeContents(span);
+          range.collapse(false);
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
+
+      span.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          span.blur();
+        }
+      });
+    });
+  </script>
+
+  <script>
+      
+  const favotiteTexImage = document.querySelector('.favotite-tex-image');
+
+  favotiteTexImage.addEventListener('click', () => {
+    if (document.querySelector('.favotite-text-span')) return;
+
+    favotiteTexImage.style.display = 'none';
+
+    const span = document.createElement('span');
+    span.className = 'favotite-text-span';
+    span.setAttribute('contenteditable', 'true');
+    span.setAttribute('spellcheck', 'false');
+    span.textContent = '';
+    span.style.display = 'inline-block';
+    span.style.minHeight = '1em';
+    span.style.outline = 'none';
+
+    document.querySelector('.create-popup-background').appendChild(span);
+
+    span.focus();
+
+    const MAX_CHAR_LENGTH = 9;
+    span.addEventListener('input', () => {
+      if (span.textContent.length > MAX_CHAR_LENGTH) {
+        span.textContent = span.textContent.slice(0, MAX_CHAR_LENGTH);
+
+        const range = document.createRange();
+        const sel = window.getSelection();
+        range.selectNodeContents(span);
+        range.collapse(false);
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+
+    span.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        span.blur();
+      }
+    });
+  });
+  </script>
+  
+  <script>
+  const createBtn = document.getElementById('createBtn');
+
+  createBtn.addEventListener('click', () => {
+    window.location.href = 'index_play.html';
+  });
+  </script>
   <script>
   const musicBtn = document.getElementById('musicBtn');
   const audio = document.getElementById('bgm');
@@ -76,13 +265,13 @@
   <script>
    const helpBtn    = document.querySelector('.help-btn');
    const helpPopup  = document.getElementById('helpPopup');
-   const closePopup = document.getElementById('closePopup');
+   const closeHelpPopup = document.getElementById('closeHelpPopup');
 
     helpBtn.addEventListener('click', () => {
      helpPopup.style.display = 'flex';
     });
 
-    closePopup.addEventListener('click', () => {
+    closeHelpPopup.addEventListener('click', () => {
      helpPopup.style.display = 'none';
     });
   </script>
